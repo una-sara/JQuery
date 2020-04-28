@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的内容和值</h1>
+<form action="">
+用户名:<input name="uname">
+	<span></span><br>
+密码:<input type="password" name="upwd">
+	<span></span><br>
+<input type="submit" value="提交注册信息">
+</form>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+//正确时，使用图片:"<img src='img/ok.png'>"
+//姓名错误时: "<img src='img/err.png'>用户名必须介于3~9位之间!"
+//密码错误时: "<img src='img/err.png'>密码必须介于6~8位之间!"
+//阻止默认行为: e.preventDefault();
+//表单提交: $(form).submit();
+//查找姓名文本框(type=text)和密码框(type=password):
+var $txtName=$("input:text");
+var $txtPwd=$("input:password");
+//为其绑定失去焦点事件: 
+$txtName.blur(function(){
+	vali($(this),3,9,"用户名必须介于3~9位之间!");
+});
+function vali($txt,minlen,maxlen,msg){
+	//验证当前文本框的内容长度
+	var len=$txt.val().length;
+	if(len>=minlen&&len<=maxlen){//如果长度>=最小长度且长度<=最大长度,就找到当前文本框的下一个兄弟span，设置其内容
+		$txt.next().html(`<img src='img/ok.png'>`);
+		return true;
+	}else{//否则,找到当前文本框的下一个兄弟span，设置其内容
+		$txt.next().html(`<img src='img/err.png'>${msg}`);
+		return false;
+	}
+}
+$txtPwd.blur(function(){
+	vali($(this),6,8,"密码必须介于6~8位之间!");
+});
+//查找表单，为其绑定submit事件
+$("form").submit(function(e){
+	//获得两个文本框的验证结果
+	var rName=vali($txtName,3,9,"用户名必须介于3~9位之间!");
+	var rPwd=vali($txtPwd,6,8,"密码必须介于6~8位之间!");
+	//如果两个不都是true
+	if(!(rName&&rPwd))
+		e.preventDefault()//阻止提交！
+});
+</script>
+ </body>
+</html>
