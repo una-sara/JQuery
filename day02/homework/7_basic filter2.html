@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" />
+ <title>...</title>
+<style>
+ul{ list-style:none}
+ul>li{ 
+	float:left;
+	border:1px solid #aaa;
+	width:60px; height:30px;
+	text-align:center;
+	line-height:30px;
+}
+/*第一个li左上，左下圆角
+ul>li:first-child{
+	border-radius:4px 0 0 4px;
+}*/
+/*最后一个li右上，右下圆角
+ul>li:last-child{
+	border-radius:0 4px 4px 0;
+}*/
+/*第一个li之后的所有li去掉左边框*/
+/*ul>li:first-child~li{
+ul>li+li{ border-left:0; }*/
+</style>
+</head>
+<body>
+<h1>实现按钮组效果</h1>
+<ul>
+	<li>|◀◀</li>
+	<li>▷</li>
+	<li>||</li>
+	<li>▶▶|</li>
+</ul>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+//找到第一个li设置其左上，左下圆角
+$("ul>li:first")
+.css("border-radius","4px 0 0 4px")
+//return $("ul>li:first")
+.nextAll()//找到第一个li之后的所有li，清除左边框
+.css("border-left",0)
+//return nextAll()
+.last()//找到最后一个li设置其右上，右下圆角
+.css("border-radius","0 4px 4px 0")
+
+$("ul>li:gt(0)")
+</script>
+<div style="clear:both"></div>
+
+<h1>实现表格隔行变色效果</h1>
+<!--table>(thead>tr>th*4)+(tbody>tr*3>td*4)-->
+<style>
+	table{
+		width:450px;
+		border-collapse:collapse;
+		text-align:center;
+	}
+	table>thead{ 
+		border-bottom:3px solid #555
+	}
+/*
+table>tbody>tr+tr{
+	border-top:1px solid #555
+}
+table>tbody>tr:nth-child(2n){
+	background:green;
+}
+*/
+</style>
+<table>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>User Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>亮</td>
+			<td>成</td>
+			<td>@liang</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>然</td>
+			<td>李</td>
+			<td>@ran</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>东</td>
+			<td>张</td>
+			<td>@dong</td>
+		</tr>
+	</tbody>
+</table>
+<script>
+$("table>tbody>tr:gt(0)")
+.css("border-top","1px solid #555");
+//return 第一行之后所有行
+$("table>tbody>tr:odd")
+.css("background","green");
+</script>
+</body>
+</html>
