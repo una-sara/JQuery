@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    img { position: relative; }
+  </style>
+</head>
+<body>
+<img id="s1" src="img/star.png"><br/>
+<img id="s2" src="img/star.png"><br/>
+<img id="s3" src="img/star.png"><br/>
+<img id="s4" src="img/star.png"><br/>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+  /*
+  s1在屏幕左上角的小星星， 点击后从左移动到屏幕右边
+  s2在屏幕左上角的小星星，点击后从左移动到屏幕右边，再移动到下边——走直角
+  s3在屏幕左上角的小星星，点击后从左上角移动到屏幕右下边，走斜线
+  s4点击小星星，变大、变淡....  直至消失
+*/
+$("#s1").click(function(){
+  var $s=$(this);
+  //如果当前star没有播放动画，就启动动画
+  if(!$s.is(":animated"))
+    $s.animate({ left:300 },2000)
+  else//否则(当前star正在播放动画)
+    $s.stop()//就停止动画
+});
+$("#s2").click(function(){
+  var $s=$(this)
+  //动画队列[{left:300},{top:100}]
+  //                      ↑
+  //如果当前star正在播放动画，就停止动画
+  if($s.is(":animated"))
+    $s.stop(true);
+  else{//否则(当前star没有播放动画)
+    //就启动动画
+    $s.animate({left:300},2000)//先
+      .animate({top:100},2000)//后
+  }
+})
+$("#s3").click(function(){
+  $(this).animate({left:300,top:100},2000)
+})
+$("#s4").click(function(){
+  alert("疼!");
+  $(this).animate(
+    {//定时器->异步
+      width:256, height:256, 
+      marginLeft:-64,marginTop:-64,
+      opacity:0
+    },
+    2000,
+    function(){//动画结束后自动调用
+      //this->当前元素
+      $(this).hide();
+    }
+  )
+})
+</script>
+</body>
+</html>
