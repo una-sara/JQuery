@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>事件绑定</h1>
+<button id="btn1">发射子弹</button>
+<button id="btn2">获得奖励</button>
+<button id="btn3">失去奖励</button>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+	      //.addEventListener
+$("#btn1").on("click",function(){
+	console.log("发射普通子弹...");
+})
+function shoot2(){
+	alert("发射跟踪导弹=>=>=>");
+}
+$("#btn2").on("click",function(){
+	$("#btn1").on("click",shoot2)
+})
+$("#btn3").on("click",function(){
+	$("#btn1").off("click",shoot2)
+	        //.removeEventListener()
+})
+</script>
+ </body>
+</html>
