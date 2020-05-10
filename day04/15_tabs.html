@@ -1,0 +1,38 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>读取并修改元素的属性</title>
+<meta charset="utf-8" />
+<!--1. 引入插件的css-->
+<link rel="stylesheet" href="my-ui/my-ui.css">
+</head>
+<body>
+  <h2>实现多标签页效果</h2>
+  <!--2. 按插件要求编写HTML,去掉class和自定义扩展属性-->
+  <div id="my-tabs">
+    <ul>
+      <li><a href="#content1">10元套餐</a></li>
+      <li><a href="#content2">30元套餐</a></li>
+      <li><a href="#content3">50元包月</a></li>
+    </ul>
+    <div>
+      <div id="content1">
+        10元套餐详情：<br />&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
+      </div>
+      <div id="content2">
+        30元套餐详情：<br />&nbsp;每月套餐内拨打300分钟，超出部分1.5毛/分钟
+      </div>
+      <div id="content3">
+        50元包月详情：<br />&nbsp;每月无限量随心打
+      </div>
+    </div>
+  </div>
+  <!--3. 引入jQuery.js和插件.js-->
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="my-ui/my-ui.js"></script>
+  <!--4. 查找插件父元素调用插件函数-->
+  <script>
+    $("#my-tabs").tabs();
+  </script>
+</body>
+</html>
