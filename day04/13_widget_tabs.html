@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+	<meta charset="utf-8">
+	<!--1. 引入jQuery UI的css-->
+	<link rel="stylesheet" href="css/jquery-ui.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Tabs</h1>
+	<h3>标签页组件</h3>
+	<!--2. 按照插件要求，编写HTML结构和内容，并去掉class-->
+	<div id="my-tabs">
+		<ul>
+			<li><a href="#tc10">十元套餐</a></li>
+			<li><a href="#tc20">二十元套餐</a></li>
+			<li><a href="#tc30">三十元套餐</a></li>
+		</ul>
+		<div id="tc10">
+			<p>十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum atque ab omnis sapiente maxime voluptatem dolor eligendi excepturi vero unde odit id. Tempore quas esse impedit et omnis optio.</p>
+		</div>
+		<div id="tc20">
+			<p>二十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum atque ab omnis sapiente maxime voluptatem dolor eligendi excepturi vero unde odit id. Tempore quas esse impedit et omnis optio.</p>
+		</div>
+		<div id="tc30">
+			<p>三十元套餐详情：Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium illum atque ab omnis sapiente maxime voluptatem dolor eligendi excepturi vero unde odit id. Tempore quas esse impedit et omnis optio.</p>
+		</div>
+	</div>
+	<!--3. 先引入jQuery，再引入jQuery UI-->
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<!--4. 查找插件的父元素，调用插件函数-->
+	<script>
+		$("#my-tabs").tabs();
+	</script>
+ </body>
+</html>
