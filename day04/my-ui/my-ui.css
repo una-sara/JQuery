@@ -1,0 +1,71 @@
+/******** accordion **********/
+/*剪切14_accordion.html中<style>内容到此*/
+.accordion{
+  width:80%; 
+  margin:0 auto;
+}
+.accordion>.title{
+  background:#eee; border:1px soild #aaa;
+  padding:6px; font-size:1.5em; 
+  font-weight:bold; cursor:pointer;
+}
+.accordion>.content{
+  border-left:1px solid #eee;
+  border-right:1px solid #eee;
+}
+.accordion>:last-child{
+  border-bottom:1px solid #eee;
+}
+.accordion>.fade{
+  height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:all .5s linear;
+}
+.accordion>.in{
+  height:84px;
+  opacity:1;
+}
+/********** tabs ************/
+/*剪切15_tabs.html中<style>中的css样式到此*/
+.tabs{ list-style:none; padding:0;}
+.tabs a{
+  text-decoration:none;
+	color:#000;
+	padding:6px 12px;
+	display:inline-block;
+  width:96px;
+  text-align:center;
+}
+.tabs>li{
+  float:left;
+  border-bottom:1px solid #000;
+}
+.tabs>.active{
+  border:1px solid #000;
+  border-bottom:0;
+}
+.tabs+.container{
+	position: relative;
+}
+.tabs+.container>div{
+	width: 300px;
+	height: 100px;
+	padding:30px;
+  background:#fff;
+  border:1px solid #000;
+  border-top:0;
+	position: absolute;
+	top: 34px;
+	left: 0;
+}
+.tabs+.container>.active{
+  z-index:10;
+}
+/********* dropdown *********/
+.dropdown>.fade{
+
+}
+.dropdown>.in{
+
+}
