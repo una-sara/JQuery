@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">获得天气</button>
+<script src="jquery-1.11.3.js"></script>
+<script>
+//右键: liver server运行
+$("#btn").click(function(){
+  $.ajax({
+    url:"http://localhost:3000",
+              //  同桌IP
+    type:"get",
+    dataType:"jsonp",
+    success:function(res){//匿名
+      alert(res);
+    }
+  })
+})
+/*function doit(res){//回调函数
+  //res就得到了:"晴 -10~-2 from dong"
+  alert(res);
+  $("body>script:last").remove();
+}
+$("#btn").click(function(){
+  $('<script src="http://localhost:3000?callback=doit">').appendTo("body");
+})*/
+</script>
+<!--<script src="http://localhost:3000?callback=doit">
+                  //  同桌IP
+          //返回"晴 -10~-2" X
+          //返回一条可执行的js语句:
+          //doit("晴 -10~-2 from dong")
+-->
+</body>
+</html>
